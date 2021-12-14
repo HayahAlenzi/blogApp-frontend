@@ -5,8 +5,10 @@ import About from "./Components/About"
 import LogIn from "./Components/LogIn"
 import NavBar from "./Components/NavBar"
 import SignUp from "./Components/SignUp"
+import Search from "./Components/Search"
 import { Route} from "react-router-dom";
 import Footer from './Components/Footer'
+import AddPost from './Components/AddPost'
 
 function App() {
 
@@ -19,16 +21,19 @@ function App() {
       
       <div>
        <NavBar />
-      <Route exact path="/Activities"  component={Explor}/>
-      <Route exact path="/About" component={About} /> 
+      <Route exact path="/Explor"  component={Explor}/>
+      <Route exact path="/About" component={About} />
+      <Route exact path="/Search" component={Search} />
       <Route exact path="/LogIn" component={LogIn} /> 
       <Route exact path="/SignUp" component={SignUp} /> 
+      <Route exact path="/AddPost" component={AddPost} /> 
+
 
 
 
  
     </div>
-    <Footer/>
+    {/* <Footer/> */}
     </div>
   );
 }

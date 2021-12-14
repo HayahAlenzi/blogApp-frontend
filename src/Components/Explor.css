@@ -1,0 +1,29 @@
+.div-container{
+/* padding: 20px;
+margin-top: 20px;
+ border: 1px solid black;  
+ display: grid;
+ grid-template-columns:repeat(4, auto);
+ grid-gap: 13px;
+gap: 10px;
+ justify-content: space-between;
+ font-family: cursive, wh;
+ font-size: x-large;
+ align-items: center;
+ height:100%;
+ width: 100%;
+ color: rgb(14, 12, 12);
+
+  */
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* width: 30%; */
+  border: 1px solid black;
+}
+
+.div-container div{
+    /* width: 30%; */
+    border: 1px solid black;
+
+}
