@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink} from "react-router-dom";
+import { NavLink , Link} from "react-router-dom";
 import { useSelector ,useDispatch } from 'react-redux';
 import { giveToken } from '../Reducers/actions';
 import { FiPlusCircle } from "react-icons/fi";
@@ -30,9 +30,10 @@ const logOut=()=>{
 
 
             <NavLink to="/Search" className="navbar-link"> <li className="navbar-item"> Search</li></NavLink>
-            <NavLink  to="/LogIn " className="navbar-link">  <li className="navbar-item"> Log in</li></NavLink>
-          {/* {token? (<NavLink to="/out" className="navbar-link" onClick={()=>{logOut()}}> <li className="navbar-item">Log Out</li></NavLink>): */}
-          {/* (<NavLink  to="/LogIn " className="navbar-link">  <li className="navbar-item"> Log in</li></NavLink>)} */}
+
+          {token? (<NavLink to="/out" className="navbar-link" onClick={()=>{logOut()}}> <li className="navbar-item">Log Out</li></NavLink>):
+          (            <Link to="/login" className="navbar-link"><li  className="navbar-item">Log in</li></Link>
+          )}
 
 
 

@@ -9,6 +9,7 @@ import Search from "./Components/Search"
 import { Route} from "react-router-dom";
 import Footer from './Components/Footer'
 import AddPost from './Components/AddPost'
+import Profile from './Components/Profile'
 
 function App() {
 
@@ -24,10 +25,10 @@ function App() {
       <Route exact path="/Explor"  component={Explor}/>
       <Route exact path="/About" component={About} />
       <Route exact path="/Search" component={Search} />
-      <Route exact path="/LogIn" component={LogIn} /> 
+      <Route exact path="/login" component={LogIn} /> 
       <Route exact path="/SignUp" component={SignUp} /> 
       <Route exact path="/AddPost" component={AddPost} /> 
-
+      <Route exact path="/profile/:id" component={Profile}/>
 
 
 

@@ -1,5 +1,7 @@
 import React ,{useState ,useEffect}from 'react'
 import { useSelector ,useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import axios  from  "axios"
 import "./Explor.css"
@@ -10,7 +12,13 @@ export default function Activities() {
 
     const [publicData, setPublicData] = useState([])
     const token = useSelector((state) => state.tokenX.token)
+    
+    const history=useHistory()
 
+    const goToProfile=(id)=>{
+
+history.push(`/profile/${id}`)
+    }
     useEffect(async () => {
        const resData= await axios.get("http://localhost:5000/dataPosts")
        setPublicData(resData.data)
@@ -29,7 +37,7 @@ export default function Activities() {
 <p>{elem.des}</p>
 <h6>data{elem.date}</h6>
 <img src={elem.img} alt="img" />
-<h4>{elem.userId.name}</h4>
+<h4><Link onClick={()=>{goToProfile(elem.userId._id)}} >{elem.userId.name}</Link></h4>
 </div>
           
           );
