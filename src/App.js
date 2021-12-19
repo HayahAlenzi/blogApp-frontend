@@ -10,6 +10,7 @@ import { Route} from "react-router-dom";
 import Footer from './Components/Footer'
 import AddPost from './Components/AddPost'
 import Profile from './Components/Profile'
+import TimeLine from './Components/TimeLine'
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
       <Route exact path="/SignUp" component={SignUp} /> 
       <Route exact path="/AddPost" component={AddPost} /> 
       <Route exact path="/profile/:id" component={Profile}/>
-
+      <Route exact path="/TimeLine" component={TimeLine}/>
 
 
  

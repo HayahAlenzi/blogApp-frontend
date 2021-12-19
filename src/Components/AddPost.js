@@ -38,7 +38,7 @@ const res =await axios.post("http://localhost:5000/dataPosts",{
             <input onChange={(e)=>{titelVal(e)}} placeholder='Write titele' type="text"/>
             <input onChange={(e)=>{desVal(e)}} placeholder='Write a caption...' type="text" />
             <input onChange={(e)=>{imgVal(e)}}placeholder='add img' type="url" /> 
-            <button onClick={()=>{sendData()}}> </button>
+            <button onClick={()=>{sendData()}}> Shere</button>
         
             ومكان ادخال البيانات
         </div>

@@ -35,6 +35,8 @@ const logOut=()=>{
           (            <Link to="/login" className="navbar-link"><li  className="navbar-item">Log in</li></Link>
           )}
 
+{token? (<NavLink to="/TimeLine" className="navbar-link"lassName="navbar-item"><li>Time Line</li></NavLink>):
+          ("")}
 
 
 </ul>
