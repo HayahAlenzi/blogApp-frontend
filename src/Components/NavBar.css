@@ -12,7 +12,7 @@ body{
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 .navbar-container{
-    background-color: rgb(116, 199, 164);
+    background-color: rgb(119, 199, 116);
     margin: 0%;
     height: 50px;
     /* border: 1px solid green; */
@@ -35,7 +35,7 @@ body{
 
 /* visited link */
 .navbar-link:visited {
-  color: green;
+  color: rgb(70, 134, 70);
 }
 
 /* mouse over link */

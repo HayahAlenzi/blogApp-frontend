@@ -18,13 +18,13 @@ export default function Activities() {
   useEffect(async () => {
     const resData = await axios.get("http://localhost:5000/dataPosts");
     setPublicData(resData.data);
-    console.log(resData.data);
+    // console.log(resData.data);
   }, []);
 
   return (
     <div className="container">
       {publicData.map((elem, index) => {
-        console.log(elem);
+        // console.log(elem);
         return (
           <div className="card" key={index}>
             <div>

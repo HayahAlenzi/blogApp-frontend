@@ -10,17 +10,28 @@ export default function Profile() {
 
     const [userProfile, setUserProfile] = useState([])
     const [toggle, setToggle] = useState(false)
-    const {id}=useParams()
 
-    
+    const {id}=useParams()
     const token = useSelector((state) => state.tokenX.token)
 
     useEffect(async() => {
      
-        const res= await axios.get(`http://localhost:5000/userPosts/${id}`)
-        console.log(res.data);
-        setUserProfile(res.data)
-      
+        const res1= await axios.get(`http://localhost:5000/userPosts/${id}`)
+        console.log(res1.data);
+        setUserProfile(res1.data)
+
+        const res2 =await axios.get("http://localhost:5000/FollowArr",{
+         headers: { authorization: `Bearer ${token}` },
+
+        })
+        console.log(res2.data.following);
+
+        const findFollowing=res2.data.following.find(ele=>ele==id)
+      // console.log(findFollowing,"hh");
+      if(findFollowing){
+        setToggle(true)
+      }
+
     },[])
 
 
@@ -62,6 +73,8 @@ export default function Profile() {
             {}
         <h1> profile: {userProfile[0] && userProfile[0].userId.name}</h1>
         <h2>{  userProfile[0]&&userProfile[0].userId._id}</h2>
+
+        
        {toggle?( <button onClick={()=>{unFollow(userProfile[0]&&userProfile[0].userId._id)}}>UnFollow</button>):
         
         (<button onClick={()=>{testFollow(userProfile[0]&&userProfile[0].userId._id)}}>Follow</button>)}
@@ -73,31 +86,30 @@ export default function Profile() {
                   return (
                     <div className="card" key={index}>
                           <div className="card__header">
-    <img src={elem.img} alt="img" />
-  </div>
-  <div className="card__body">
-    <span className="tag tag-blue">type of blog</span>
-    <h3>{elem.title}</h3>
-    <p>{elem.des}</p>
-  </div>
+                           <img src={elem.img} alt="img" />
+                     </div>
+                      <div className="card__body">
+                            <span className="tag tag-blue">type of blog</span>
+                            <h3>{elem.title}</h3>
+                            <p>{elem.des}</p>
+                      </div>
                        
-  <div className="card__footer">
-    <div className="user">
-      <img
-        src="https://cdn.iconscout.com/icon/free/png-256/user-1648810-1401302.png"
-        alt="user__image"
-        className="user__image"
-      />
-    </div>
+                      <div className="card__footer">
+                        <div className="user">
+                          <img
+                            src="https://cdn.iconscout.com/icon/free/png-256/user-1648810-1401302.png"
+                            alt="user__image"
+                            className="user__image"
+                          />
+                        </div>
 
-    <div className="user__info">
+                      <div className="user__info">
 
-  <h3> {elem.userId.name}</h3> 
-    
-      <small>data{elem.date}</small>
-    </div>
-  </div>
-</div>
+                           <h3> {elem.userId.name}</h3> 
+                           <small>data{elem.date}</small>
+                      </div>
+                    </div>
+                  </div>
 
 );
 })}
