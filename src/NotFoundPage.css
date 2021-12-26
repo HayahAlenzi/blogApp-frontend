@@ -1,3 +1,16 @@
-.not-found-page{
-    background-image: url(https://i0.wp.com/soundgirls.org/wp-content/uploads/2019/09/blog-blitz.jpg?ssl=1);
+.img{
+ width:300px;
+ height:300px;
+ align-items: center;
+}
+.not-found{
+    height: 80vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.not-found div{
+    width: 25%;
+    
+
 }

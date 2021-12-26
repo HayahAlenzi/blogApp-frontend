@@ -13,6 +13,10 @@ import TimeLine from './Components/TimeLine'
 import MyProfile from './Components/MyProfile'
 import NotFoundPage from './NotFoundPage'
 import { useSelector } from 'react-redux'
+import MyPosts from "./Components/MyPosts"
+import MyFollow from "./Components/MyFollow"
+import Mylikes from "./Components/Mylikes"
+import MyMessage from "./Components/MyMessage"
 import "./App.css"
 
 
@@ -28,6 +32,7 @@ function App() {
       
       <div className='appDiv ms-auto'>
        <NavBar />
+       <div className='divApp'>
        <Switch>
       <Route exact path="/Explor"  component={Explor}/>
       <Route exact path="/About" component={About} />
@@ -38,10 +43,17 @@ function App() {
       <Route exact path="/profile/:id" component={Profile}/>
       <Route exact path="/TimeLine" component={TimeLine}/>
       <Route exact path="/myProfile" component={MyProfile}/>
+      <Route exact path="/MyPosts" component={MyPosts}/>
+      <Route exact path="/MyFollow" component={MyFollow}/>
+      <Route exact path="/Mylikes" component={Mylikes}/>
+      <Route exact path="/MyMessage" component={MyMessage}/>
+
+
       <Route path="*" component={NotFoundPage}/>
       </Switch>
+      </div>
     </div>
-    {token?(<MyProfile/>):("")}
+    {/* {token?(<MyProfile/>):("")} */}
    
     {/* <Footer/> */}
     </div>

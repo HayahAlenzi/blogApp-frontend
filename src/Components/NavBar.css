@@ -4,7 +4,7 @@ body{
     margin: 0%;
     padding: 0%;
     background-color:#EEEBDD;
-    color: #630000;
+    color: #7C9473;
     place-items:unset;
 
 }
@@ -12,12 +12,14 @@ body{
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 .navbar-container{
-    background-color: rgb(119, 199, 116);
+    background-color: #CFDAC8;
+    z-index: 150;
     margin: 0%;
     height: 50px;
     /* border: 1px solid green; */
-    position: sticky;
-    top: 0%;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .navbar-list {
@@ -35,18 +37,18 @@ body{
 
 /* visited link */
 .navbar-link:visited {
-  color: rgb(70, 134, 70);
+  color: #7C9473;
 }
 
 /* mouse over link */
 .navbar-link:hover {
-  color: hotpink;
+  color: #707070;
   text-decoration: none;
 }
 
 /* selected link */
 .navbar-link:active {
-  color: red;
+  color: rgb(111, 161, 122);
 }
 
 .navbar-item{

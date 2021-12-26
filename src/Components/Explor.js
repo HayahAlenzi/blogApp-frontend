@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-
+import { FcLike,FcLikePlaceholder } from "react-icons/fc";
 import axios from "axios";
 import "./Explor.css";
 
@@ -26,7 +26,7 @@ export default function Activities() {
       {publicData.map((elem, index) => {
         // console.log(elem);
         return (
-          <div className="card" key={index}>
+          <div className="card"key={index}>
             <div>
               <div className="card__header">
                 <img src={elem.img} alt="img" />
@@ -35,6 +35,7 @@ export default function Activities() {
                 <span className="tag tag-blue">type of blog</span>
                 <h3>{elem.title}</h3>
                 <p>{elem.des}</p>
+                <h3><FcLike/><FcLikePlaceholder/></h3>
               </div>
               <div className="card__footer">
                 <div className="user">
@@ -54,7 +55,7 @@ export default function Activities() {
                     >
                       {elem.userId.name}
                   </h4>
-                  <small>data{elem.date}</small>
+                  <small>data{elem.date.substr(0,10)}</small>
                 </div>
               </div>
             </div>

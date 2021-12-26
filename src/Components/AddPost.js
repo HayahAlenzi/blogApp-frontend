@@ -1,46 +1,85 @@
-import React,{useState} from 'react'
-import { useSelector } from 'react-redux';
+import React, { useState } from "react";
+import ProgressBar from './ProgressBar';
 
-import axios from 'axios'
+import { useSelector } from "react-redux";
+
+import axios from "axios";
+import UploadForm from "./UploadForm";
 
 export default function AddPost() {
-    const [inputTitel, setInputTitel] = useState("")
-    const [inputDes, setInputDes] = useState("")
-    const [inputImg, setInputImg] = useState("")
+  const [inputTitel, setInputTitel] = useState("");
+  const [inputDes, setInputDes] = useState("");
+  const [inputImg, setInputImg] = useState("");
+  const [file, setFile] = useState(null);
+  const [error, setError] = useState(null);
 
-    const token = useSelector((state) => state.tokenX.token)
+  const types = ["image/png", "image/jpeg"];
 
-// const changeEmail    = (e) => {setEmail(e.target.value);};
-const titelVal  =(e)=> {setInputTitel(e.target.value)}
+  const token = useSelector((state) => state.tokenX.token);
 
-    const desVal=(e)=>{
-setInputDes(e.target.value)
+  // const changeEmail    = (e) => {setEmail(e.target.value);};
+  const titelVal = (e) => {
+    setInputTitel(e.target.value);
+  };
+
+  const desVal = (e) => {
+    setInputDes(e.target.value);
+  };
+
+//   const imgVal = (e) => {
+//     setInputImg(e.target.value);
+//   };
+  const sendData = async () => {
+    const res = await axios.post(
+      "http://localhost:5000/dataPosts",
+      {
+        title: inputTitel,
+        des: inputDes,
+        img: inputImg,
+      },
+      {
+        headers: { authorization: `Bearer ${token}` },
+      }
+    );
+  };
+
+  const changeVal = (e) => {
+    let selected = e.target.files[0];
+    console.log(selected);
+    if (selected) {
+      setFile(selected);
+      setError("");
+    } else {
+      setFile(null);
+      setError("Please select an image file (png or jpg)");
     }
+  };
+  return (
+    <>
     
-    const imgVal=(e)=>{
-setInputImg(e.target.value)
-    }
-const sendData=async()=>{
-const res =await axios.post("http://localhost:5000/dataPosts",{
-    title:inputTitel,
-    des:inputDes,
-    img:inputImg,
- 
-  },
-  {
-    headers: { authorization: `Bearer ${token}` },
-  }
-);
-}
-    return (
-        <>
-        {token?<div>
+      {token?<div>
             <input onChange={(e)=>{titelVal(e)}} placeholder='Write titele' type="text"/>
             <input onChange={(e)=>{desVal(e)}} placeholder='Write a caption...' type="text" />
-            <input onChange={(e)=>{imgVal(e)}}placeholder='add img' type="url" /> 
+              <label>
+        <input type="file" onChange={changeVal} />
+        <span>+</span>
+      </label>
+      <div className="output">
+        {error && <div className="error">{error}</div>}
+        {file && <div>{file.name}</div>}
+        {file && (
+          <ProgressBar
+            file={file}
+            setFile={setFile}
+            setInputImg={setInputImg}
+          />
+        )}
+        {inputImg}
+      </div> 
             <button onClick={()=>{sendData()}}> Shere</button>
         
             ومكان ادخال البيانات
         </div>:""}</>
-    )
+    
+  );
 }

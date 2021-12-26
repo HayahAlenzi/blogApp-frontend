@@ -29,7 +29,7 @@ try {
 
 
     return (
-        <div>
+        <div className="container">
         {postsofFollowing.map((elem,index)=>{
             return(
                 <div className="card" key={index}>

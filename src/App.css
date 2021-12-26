@@ -1,4 +1,23 @@
+body{
+    background-color: #E8EAE6;
+}
 .appDiv{
-    width: 85%;
+
     height: 100vh;
+}
+.divApp{
+
+    margin-top: 50px;
+}
+
+
+.loader {
+    width: 300px ;
+    height: 20px;
+    background-color: grey;
+}
+.loader2 {
+    height: 20px;
+    background-color: green;
+    
 }
