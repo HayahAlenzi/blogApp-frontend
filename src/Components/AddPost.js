@@ -62,7 +62,6 @@ export default function AddPost() {
             <input onChange={(e)=>{desVal(e)}} placeholder='Write a caption...' type="text" />
               <label>
         <input type="file" onChange={changeVal} />
-        <span>+</span>
       </label>
       <div className="output">
         {error && <div className="error">{error}</div>}
@@ -74,11 +73,10 @@ export default function AddPost() {
             setInputImg={setInputImg}
           />
         )}
-        {inputImg}
+
       </div> 
             <button onClick={()=>{sendData()}}> Shere</button>
         
-            ومكان ادخال البيانات
         </div>:""}</>
     
   );

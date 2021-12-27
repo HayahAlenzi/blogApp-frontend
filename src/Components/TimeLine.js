@@ -1,10 +1,14 @@
 import React ,{useEffect,useState} from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import { FcLike,FcLikePlaceholder } from "react-icons/fc";
+
 
 
 export default function TimeLine() {
 const [postsofFollowing, setPostsofFollowing] = useState([])
+const [toggleLike, setToggleLike] = useState(false)
+
 
 const token = useSelector((state) => state.tokenX.token)
 
@@ -21,10 +25,18 @@ try {
  setPostsofFollowing(res.data)
 } catch (error) {
     console.log(error.response.data,"errror");
-}
-
-   
+}  
 }, [])
+
+const addLike=()=>{
+
+    setToggleLike(!toggleLike)
+  }
+
+  const disLike=()=>{
+
+    setToggleLike(!toggleLike)
+  }
 
 
 
@@ -41,7 +53,8 @@ try {
 <h3>{elem.title}</h3>
 <p>{elem.des}</p>
 </div>
-             
+{token?(<div>   {toggleLike?( <h3 onClick={()=>{addLike()}}><FcLike/></h3>):
+       ( <h3 onClick={()=>{disLike()}}><FcLikePlaceholder/></h3>)}</div>):("")}           
 <div className="card__footer">
 <div className="user">
 <img

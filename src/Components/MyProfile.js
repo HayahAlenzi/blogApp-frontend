@@ -12,6 +12,8 @@ export default function MyProfile() {
   const [myData, setMyData] = useState([]);
   const [toggle, setToggle] = useState(0);
   const [myFollow, setMyFollow] = useState(null);
+  const [myFollowing, setMyFollowing] = useState(null)
+  const [myFollowers, setMyFollowers] = useState(null)
 
   const changeToggle = (x) => {
     setToggle(x);
@@ -31,12 +33,17 @@ export default function MyProfile() {
     });
     console.log(res2.data, "ressss2"); //give me follow data
     setMyFollow(res2.data);
+    setMyFollowing(res2.data.following)
+    setMyFollowers(res2.data.followers)
   }, []);
 
+  console.log("ers",myFollowers);
+  console.log("ing",myFollowing);
   return (
     <div>
       {/* {myData&&myData[0]} */}
       {myData.map((elem, index) => {
+        console.log(elem);
         return (
           <div className="mainDiv" key={index}>
             <img
@@ -46,35 +53,11 @@ export default function MyProfile() {
             />
             <h3>Name: {elem.userId.name}</h3>
             {/* <div> */}
-            <h4 onClick={() => { changeToggle(1)  }}>following:{myFollow && myFollow.following.length}</h4>
-            {myFollow?<h4
-              onClick={() => {
-                changeToggle(2);
-              }}
-            >
-              followers:{myFollow.followers.length}
-            </h4>:""}
-            <h4
-              onClick={() => {
-                changeToggle(3);
-              }}
-            >
-              posts:{myData.length}
-            </h4>
-            <h4
-              onClick={() => {
-                changeToggle(4);
-              }}
-            >
-              likes: 12K{elem.userId.like}
-            </h4>
-            <h4
-              onClick={() => {
-                changeToggle(5);
-              }}
-            >
-              message
-            </h4>
+            <h4 onClick={() => {changeToggle(1)  }}>following:{myFollow && myFollow.following.length}</h4>
+  {myFollow?<h4 onClick={() => {changeToggle(2); }}>followers:{myFollow.followers.length}</h4>:""}
+            <h4 onClick={() => {changeToggle(3); }}> posts:{myData.length}</h4>
+            <h4 onClick={() => {changeToggle(4); }}>likes:{elem.userId.like.length}</h4>
+            <h4 onClick={() => {changeToggle(5); }}>message</h4>
 
             {/* </div> */}
           </div>
@@ -82,7 +65,7 @@ export default function MyProfile() {
       })}
     
       <div className="toggleDiv">
-        {toggle == 1 ? <MyFollow /> : ""}
+        {toggle == 1 ? <MyFollow  myFollowing={myFollowing}/> : ""}
         {toggle == 3 ? <MyPosts /> : ""}
         {toggle == 4 ? <Mylikes /> : ""}
         {toggle == 5 ? <MyMessage /> : ""}

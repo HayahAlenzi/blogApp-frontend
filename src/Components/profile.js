@@ -2,6 +2,7 @@ import axios from 'axios'
 import React ,{useEffect ,useState}from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { FcLike,FcLikePlaceholder } from "react-icons/fc";
 import "./Profile.css"
 
 
@@ -10,6 +11,8 @@ export default function Profile() {
 
     const [userProfile, setUserProfile] = useState([])
     const [toggle, setToggle] = useState(false)
+    const [toggleLike, setToggleLike] = useState(false)
+
 
     const {id}=useParams()
     const token = useSelector((state) => state.tokenX.token)
@@ -68,6 +71,16 @@ export default function Profile() {
      
     }
 
+    const addLike=()=>{
+
+      setToggleLike(!toggleLike)
+    }
+  
+    const disLike=()=>{
+  
+      setToggleLike(!toggleLike)
+    }
+
     return (
         <div>
             {}
@@ -93,7 +106,8 @@ export default function Profile() {
                             <h3>{elem.title}</h3>
                             <p>{elem.des}</p>
                       </div>
-                       
+                      {token?(<div>   {toggleLike?( <h3 onClick={()=>{addLike()}}><FcLike/></h3>):
+       ( <h3 onClick={()=>{disLike()}}><FcLikePlaceholder/></h3>)}</div>):("")}
                       <div className="card__footer">
                         <div className="user">
                           <img

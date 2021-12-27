@@ -1,65 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import { FcLike,FcLikePlaceholder } from "react-icons/fc";
 import axios from "axios";
+import PostofExplor from "./PostofExplor";
 import "./Explor.css";
 
 export default function Activities() {
   const [publicData, setPublicData] = useState([]);
-  const history = useHistory();
+  const [userLikes, setUserLikes] = useState([]);
+  
   const token = useSelector((state) => state.tokenX.token);
 
+ 
 
-  const goToProfile = (id) => {
-    history.push(`/profile/${id}`);
-  };
   useEffect(async () => {
     const resData = await axios.get("http://localhost:5000/dataPosts");
     setPublicData(resData.data);
-    // console.log(resData.data);
+    // console.log(resData.data);//for all posts
+
+    const getUserlikes = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/likedPosts", {
+          headers: { authorization: `Bearer ${token}` },
+        });
+        console.log(res.data);
+        setUserLikes(res.data); //for likes of user make login
+    
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+
+    getUserlikes();
   }, []);
+
 
   return (
     <div className="container">
       {publicData.map((elem, index) => {
         // console.log(elem);
+        // console.log(userLikes);
         return (
-          <div className="card"key={index}>
-            <div>
-              <div className="card__header">
-                <img src={elem.img} alt="img" />
-              </div>
-              <div className="card__body">
-                <span className="tag tag-blue">type of blog</span>
-                <h3>{elem.title}</h3>
-                <p>{elem.des}</p>
-                <h3><FcLike/><FcLikePlaceholder/></h3>
-              </div>
-              <div className="card__footer">
-                <div className="user">
-                  <img
-                    src="https://cdn.iconscout.com/icon/free/png-256/user-1648810-1401302.png"
-                    alt="user__image"
-                    className="user__image"
-                  />
-                </div>
+          <PostofExplor elem={elem} index={index} userLikes={userLikes} />
 
-                <div className="user__info">
-                  
-                    <h4
-                      onClick={() => {
-                        goToProfile(elem.userId._id);
-                      }}
-                    >
-                      {elem.userId.name}
-                  </h4>
-                  <small>data{elem.date.substr(0,10)}</small>
-                </div>
-              </div>
-            </div>
-          </div>
         );
       })}
     </div>
