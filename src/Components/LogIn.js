@@ -1,9 +1,8 @@
 import React ,{useEffect, useState}from 'react'
 import { useHistory , Link} from "react-router-dom";
 import { useDispatch } from 'react-redux';
-
 import { giveToken } from '../Reducers/actions';
-
+import "./LogIn.css"
 import axios from 'axios';
 
 
@@ -65,19 +64,32 @@ export default function LogIn() {
 
     return (
         <>
+        
+ <div className='bigDiv'>
+             
         <h1 style={{color:"red", textAlign:"center",marginTop:"20px"}}> {errMsg}</h1>
-             <div >
+             <div className='center' >
  
-            <div style={{ height:"450px ", borderRadius:"15px "}} >
-                <h4 >Email</h4>
-                <input placeholder="enterEmail" onChange={(e)=>{changeEmail(e)}} />
-                <h4> Password </h4>
-                <input type="password" placeholder="enterPassWord" onChange={(e)=>{changePassword (e)}} />
-                <button  onClick={()=>{addUser()}}> log in </button>
+            <div className='inputbox' >
+            <span>Email</span>
+                <input onChange={(e)=>{changeEmail(e)}} />
+                
+                </div>
                
-              <Link to="/SignUp">  <p  style={{color:"white",cursor: "pointer"}}> Don't have an account? Create account</p></Link>  
-        </div >
-        </div>
+                <div className='inputbox'>
+                <span> Password </span>
+                <input type="password" onChange={(e)=>{changePassword (e)}} />
+                {/* <span>Password</span> */}
+                </div>
+
+                <div className="inputbox">
+      <input type="button" onClick={()=>{addUser()}} value="log in"/>
+    </div>
+               
+               
+              <Link to="/SignUp">  <p  style={{color:"gry",cursor: "pointer"}}> Don't have an account? Create account</p></Link>  
+              </div>   
+              </div>
         </>
     )
 }

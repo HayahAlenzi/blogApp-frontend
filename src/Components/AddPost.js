@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import ProgressBar from './ProgressBar';
-
 import { useSelector } from "react-redux";
-
 import axios from "axios";
-import UploadForm from "./UploadForm";
+import "./addPost.css"
 
 export default function AddPost() {
   const [inputTitel, setInputTitel] = useState("");
@@ -57,12 +55,11 @@ export default function AddPost() {
   return (
     <>
     
-      {token?<div>
-            <input onChange={(e)=>{titelVal(e)}} placeholder='Write titele' type="text"/>
-            <input onChange={(e)=>{desVal(e)}} placeholder='Write a caption...' type="text" />
-              <label>
-        <input type="file" onChange={changeVal} />
-      </label>
+      {token?<div className="b">
+            <input className="inputFiled" onChange={(e)=>{titelVal(e)}} placeholder='Write titele' type="text"/>
+            <input className="inputFiled" onChange={(e)=>{desVal(e)}} placeholder='Write a caption...' type="text" />
+            <input className="inputFiled" type="file" onChange={changeVal} />
+    
       <div className="output">
         {error && <div className="error">{error}</div>}
         {file && <div>{file.name}</div>}

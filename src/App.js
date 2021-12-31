@@ -9,6 +9,7 @@ import { Route, Switch} from "react-router-dom";
 import Footer from './Components/Footer'
 import AddPost from './Components/AddPost'
 import Profile from './Components/Profile'
+import OnePost from './Components/OnePost'
 import TimeLine from './Components/TimeLine'
 import MyProfile from './Components/MyProfile'
 import NotFoundPage from './NotFoundPage'
@@ -17,6 +18,9 @@ import MyPosts from "./Components/MyPosts"
 import MyFollow from "./Components/MyFollow"
 import Mylikes from "./Components/Mylikes"
 import MyMessage from "./Components/MyMessage"
+import G from "./Components/g"
+import BasicOfChat from './Components/BasicOfChat'
+
 import "./App.css"
 
 
@@ -41,12 +45,17 @@ function App() {
       <Route exact path="/SignUp" component={SignUp} /> 
       <Route exact path="/AddPost" component={AddPost} /> 
       <Route exact path="/profile/:id" component={Profile}/>
+      <Route exact path="/p/:id" component={OnePost}/>
       <Route exact path="/TimeLine" component={TimeLine}/>
       <Route exact path="/myProfile" component={MyProfile}/>
       <Route exact path="/MyPosts" component={MyPosts}/>
       <Route exact path="/MyFollow" component={MyFollow}/>
       <Route exact path="/Mylikes" component={Mylikes}/>
       <Route exact path="/MyMessage" component={MyMessage}/>
+      <Route exact path="/g" component={G}/>
+      <Route exact path="/BasicOfChat" component={BasicOfChat}/>
+
+
 
 
       <Route path="*" component={NotFoundPage}/>

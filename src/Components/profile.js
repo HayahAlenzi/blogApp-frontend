@@ -3,6 +3,7 @@ import React ,{useEffect ,useState}from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { FcLike,FcLikePlaceholder } from "react-icons/fc";
+import BasicOfChat from './BasicOfChat';
 import "./Profile.css"
 
 
@@ -15,6 +16,7 @@ export default function Profile() {
 
 
     const {id}=useParams()
+    // console.log(id);
     const token = useSelector((state) => state.tokenX.token)
 
     useEffect(async() => {
@@ -29,13 +31,27 @@ export default function Profile() {
         })
         console.log(res2.data.following);
 
-        const findFollowing=res2.data.following.find(ele=>ele==id)
-      // console.log(findFollowing,"hh");
-      if(findFollowing){
+
+
+     for (let i = 0; i < res2.data.following.length; i++) {
+      if(res2.data.following[i]._id ==id){
+        console.log(res2.data.following[i],"that");
         setToggle(true)
       }
+       
+     }
+
+      //   const findFollowing=res2.data.following.find(ele=>ele._id==id)
+      //   console.log(id);
+      // console.log(findFollowing,"hh");
+      // if(findFollowing){
+      //   setToggle(true)
+      // }
 
     },[])
+
+    console.log(toggle);
+
 
 
     const testFollow=async(id)=>{
@@ -83,15 +99,14 @@ export default function Profile() {
 
     return (
         <div>
-            {}
+
         <h1> profile: {userProfile[0] && userProfile[0].userId.name}</h1>
         <h2>{  userProfile[0]&&userProfile[0].userId._id}</h2>
-
         
        {toggle?( <button onClick={()=>{unFollow(userProfile[0]&&userProfile[0].userId._id)}}>UnFollow</button>):
         
         (<button onClick={()=>{testFollow(userProfile[0]&&userProfile[0].userId._id)}}>Follow</button>)}
-
+          <BasicOfChat  id ={id}/>
 
 
         {userProfile.map((elem, index) => {

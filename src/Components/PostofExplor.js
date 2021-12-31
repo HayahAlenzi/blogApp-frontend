@@ -2,10 +2,12 @@ import React ,{useState,useEffect} from 'react'
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { GrNext } from "react-icons/gr";
 import axios from 'axios';
 
 
 export default function PostofExplor({elem,index,userLikes}) {
+
     const [toggleLike, setToggleLike] = useState(false);
     const token = useSelector((state) => state.tokenX.token);
     const history = useHistory();
@@ -29,6 +31,10 @@ useEffect(() => {
   const goToProfile = (id) => {
                 history.push(`/profile/${id}`);
   };
+
+  const goToPost = (id) => {
+    history.push(`/p/${id}`);
+};
 
 
   const addLike = async (id) => {
@@ -70,6 +76,7 @@ useEffect(() => {
 
     return (
         <div>
+          {/* {console.log(elem)} */}
              <div className="card" key={index}>
             <div>
               <div className="card__header">
@@ -78,8 +85,9 @@ useEffect(() => {
               <div className="card__body">
                 <span className="tag tag-blue">type of blog</span>
                 <h3>{elem.title}</h3>
-                <p>{elem.des}</p>
-
+                <div className='pDiv'>
+                <p>{elem.des.substr(0,100)}.......</p>
+                </div>
                 {/* {for(let i=0,i<userLikes)}      */}
                 {token ? (
                   <div>
@@ -116,7 +124,8 @@ useEffect(() => {
                 </div>
 
                 <div className="user__info">
-                  <h4
+
+                  <h4 style={{cursor: "pointer"}}
                     onClick={() => {
                       goToProfile(elem.userId._id);
                     }}
@@ -124,6 +133,9 @@ useEffect(() => {
                     {elem.userId.name}
                   </h4>
                   <small>data{elem.date.substr(0, 10)}</small>
+                  <h3 onClick={() => {
+                      goToPost(elem._id);
+                    }}><GrNext/></h3>
                 </div>
               </div>
             </div>

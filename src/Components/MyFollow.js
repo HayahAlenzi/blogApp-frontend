@@ -1,10 +1,14 @@
 import React,{useEffect,useState} from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
+
 
 export default function MyFollow({myFollowing}) {
     const [myFollow, setMyFollow] = useState([])
-const token = useSelector((state) => state.tokenX.token)
+    const token = useSelector((state) => state.tokenX.token)
+    const history = useHistory();
+
 
 // useEffect(async() => {
 //     const res2 =await axios.get("http://localhost:5000/FollowArr",{
@@ -14,6 +18,10 @@ const token = useSelector((state) => state.tokenX.token)
 //        console.log(res2.data,"ressss2");//give me follow data
 // }, [])
 
+const goToProfile = (id) => {
+    history.push(`/profile/${id}`);
+};
+
     return (
         <div>
             MyFollowffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -22,8 +30,8 @@ const token = useSelector((state) => state.tokenX.token)
         console.log(elem);
         return (
             <div>
-                <h1>are you here!</h1>
-                <h1>{elem.userId}</h1>
+      <h1 style={{cursor: "pointer"}} onClick={() => {goToProfile(elem._id); }}>{elem.name}</h1>
+      
             </div>
 
 );
