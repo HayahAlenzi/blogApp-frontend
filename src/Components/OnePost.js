@@ -1,18 +1,52 @@
 import axios from 'axios'
 import React ,{useEffect ,useState}from 'react'
 import { useParams } from 'react-router-dom'
+import { useSelector } from "react-redux";
 import "./OnePost.css"
+import ScrollToBottom from "react-scroll-to-bottom";
+
 
 
 export default function OnePost() {
   const [objPost, setObjPost] = useState({})
+  const [commet, setCommet] = useState("")
+  const [getcommet, setgetcommet] = useState([])
     const {id}=useParams()
+    // console.log(id);
+    const token = useSelector((state) => state.tokenX.token);
+    const userName = useSelector((state) => state.tokenX.userName);
+console.log(userName);
 
     useEffect(async() => {
         const res1= await axios.get(`http://localhost:5000/onepost/${id}`)
         console.log(res1.data);
         setObjPost(res1.data)
+
+
+        const res2 = await axios.get(`http://localhost:5000/commet/${id}`)
+        setgetcommet(res2.data.Comment)
+        console.log(res2.data.Comment);
     }, [])
+
+    const commentVal=(e)=>{
+      setCommet(e.target.value)
+
+    }
+
+    const sandCommet=async(id)=>{
+      console.log(token);
+      const response = await axios.post(`http://localhost:5000/commet/${id}`, { 
+        commet: commet,
+        userName:userName
+      
+      },
+      {
+        headers: { authorization: `Bearer ${token}` },
+      });
+      console.log(response.data.Comment);
+      setgetcommet(response.data.Comment)
+    }
+ 
 
     return (
         <div>
@@ -64,16 +98,24 @@ export default function OnePost() {
             <div class="description-prod">
               <p><b>{objPost.des}</b></p>
             </div>
-
+<ScrollToBottom>
             <div className='commint'>
+            {getcommet.map((elem,index)=>{
+            return(
+                <div  key={index}>
 
+       <h2>{elem.userName}:</h2><p>{elem.commet}</p>
+</div>
+            )
+        })}
             </div>
+            </ScrollToBottom>
 
 
             <div >
             <div className='inptBut'>
-            <input placeholder='Add a comment... ' className='css-input'/>
-            <button className='css-but'>Sand</button></div>
+            <input placeholder='Add a comment... 'onChange={(e) =>{ commentVal(e); }} className='css-input'/>
+            <button className='css-but'  onClick={()=>{sandCommet(objPost._id)}}>Sand</button></div>
             </div>
 
 

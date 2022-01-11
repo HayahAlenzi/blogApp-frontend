@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { GrNext } from "react-icons/gr";
 import axios from 'axios';
+import "./Explor.css";
 
 
 export default function PostofExplor({elem,index,userLikes}) {

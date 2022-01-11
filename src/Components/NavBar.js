@@ -28,8 +28,8 @@ const logOut=()=>{
 <div className='navbar-container'>
 <ul className="navbar-list">
 
-           <NavLink to="/BasicOfChat">BasicOfChat</NavLink>
-            <li className="navbar-item" style={{color:"#7C9473"}}><img style={{height:"50px",weight:"50px"}} src=""/></li>
+           {/* <NavLink to="/BasicOfChat">BasicOfChat</NavLink> */}
+            {/* <li className="navbar-item" style={{color:"#7C9473"}}><img style={{height:"50px",weight:"50px"}} src=""/></li> */}
             <NavLink to="/Explor" className="navbar-link"> <li className="navbar-item">Explor </li></NavLink>
             {token? ( <NavLink  to="/AddPost" className="navbar-link" >  <li className="navbar-item"><IoIosAddCircle/></li></NavLink>): ("")}
 

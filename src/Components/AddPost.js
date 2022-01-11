@@ -39,6 +39,10 @@ export default function AddPost() {
         headers: { authorization: `Bearer ${token}` },
       }
     );
+    // setInputTitel("")
+    // setInputDes("")
+    // setInputImg("")
+
   };
 
   const changeVal = (e) => {
@@ -59,7 +63,18 @@ export default function AddPost() {
             <input className="inputFiled" onChange={(e)=>{titelVal(e)}} placeholder='Write titele' type="text"/>
             <input className="inputFiled" onChange={(e)=>{desVal(e)}} placeholder='Write a caption...' type="text" />
             <input className="inputFiled" type="file" onChange={changeVal} />
-    
+
+            <select > Movie blogs
+    <option value="Food blogs">Food blogs</option>
+    <option value="News blogs">News blogs</option>
+    <option value="Travel blogs">Travel blogs</option>
+
+    <option value="Lifestyle blogs">Lifestyle blogs</option>
+    <option value="Business blogs"> Business blogs</option>
+    <option value="Movie blogs">Movie and Music blogs</option>
+
+    <option value="Fashion and beauty blogs">Fashion and beauty blogs</option>
+  </select>
       <div className="output">
         {error && <div className="error">{error}</div>}
         {file && <div>{file.name}</div>}

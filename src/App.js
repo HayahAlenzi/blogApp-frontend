@@ -8,7 +8,7 @@ import Search from "./Components/Search"
 import { Route, Switch} from "react-router-dom";
 import Footer from './Components/Footer'
 import AddPost from './Components/AddPost'
-import Profile from './Components/Profile'
+// import Profile from './Components/Profile'
 import OnePost from './Components/OnePost'
 import TimeLine from './Components/TimeLine'
 import MyProfile from './Components/MyProfile'
@@ -19,9 +19,11 @@ import MyFollow from "./Components/MyFollow"
 import Mylikes from "./Components/Mylikes"
 import MyMessage from "./Components/MyMessage"
 import G from "./Components/g"
-import BasicOfChat from './Components/BasicOfChat'
-
+// import BasicOfChat from './Components/BasicOfChat'
+// import Profile from './Components/Profile'
+import Profile from "./Components/profile"
 import "./App.css"
+import Chat from './Components/Chat'
 
 
 function App() {
@@ -44,8 +46,10 @@ function App() {
       <Route exact path="/login" component={LogIn} /> 
       <Route exact path="/SignUp" component={SignUp} /> 
       <Route exact path="/AddPost" component={AddPost} /> 
-      <Route exact path="/profile/:id" component={Profile}/>
       <Route exact path="/p/:id" component={OnePost}/>
+      <Route exact path="/profile/:id" component={Profile}/>
+      <Route exact path="/chat/:id/:name" component={Chat}/>
+
       <Route exact path="/TimeLine" component={TimeLine}/>
       <Route exact path="/myProfile" component={MyProfile}/>
       <Route exact path="/MyPosts" component={MyPosts}/>
@@ -53,7 +57,7 @@ function App() {
       <Route exact path="/Mylikes" component={Mylikes}/>
       <Route exact path="/MyMessage" component={MyMessage}/>
       <Route exact path="/g" component={G}/>
-      <Route exact path="/BasicOfChat" component={BasicOfChat}/>
+      {/* <Route exact path="/BasicOfChat" component={BasicOfChat}/> */}
 
 
 

@@ -35,7 +35,7 @@ export default function Activities() {
 
 
   return (
-    <div className="container">
+    <div id="container">
       {publicData.map((elem, index) => {
         // console.log(elem);
         // console.log(userLikes);

@@ -50,11 +50,11 @@ body {
 
 #container {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;
   margin-block: 2rem;
-  gap: 20px;
+  gap: 2rem;
 }
 
 .card__header img {

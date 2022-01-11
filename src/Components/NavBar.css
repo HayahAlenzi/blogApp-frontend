@@ -3,8 +3,8 @@ body{
     box-sizing: border-box;
     margin: 0%;
     padding: 0%;
-    background-color:#EEEBDD;
-    color: #7C9473;
+    background-color:#333;
+    /* color: #7C9473; */
     place-items:unset;
 
 }
@@ -12,7 +12,7 @@ body{
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 .navbar-container{
-    background-color: #CFDAC8;
+    background-color: #333;
     z-index: 150;
     margin: 0%;
     height: 50px;
@@ -26,14 +26,34 @@ body{
   display: flex;
   /* text-decoration: none; */
   list-style-type: none;
-  justify-content: space-around;
+  justify-content:center;
+  padding: auto;
   /* border: 1px solid black; */
   margin: 0%;
+
 }
 
 .navbar-link {
   text-decoration: none;
 }
+
+
+
+.navbar-item{
+/* font-size:x-large;
+font-family: "Quicksand", sans-serif;
+font-weight: bolder; */
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+
+.navbar-item:hover {
+  background-color: #111;
+}
+
 
 /* visited link */
 .navbar-link:visited {
@@ -49,10 +69,4 @@ body{
 /* selected link */
 .navbar-link:active {
   color: rgb(111, 161, 122);
-}
-
-.navbar-item{
-font-size:x-large;
-font-family: "Quicksand", sans-serif;
-font-weight: bolder;
 }
