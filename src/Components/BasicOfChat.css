@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     background: #fff;
-    color: #212121;
+    color: #fff5f5;
     font-family: "Open Sans", sans-serif;
     display: grid;
     place-items: center;
@@ -94,6 +94,7 @@
     height: auto;
     padding: 10px;
     display: flex;
+    color: black;
   }
   
   .chat-window .chat-body .message .message-content {
@@ -125,6 +126,7 @@
   #you .message-meta {
     justify-content: flex-start;
     margin-left: 5px;
+    color: rgb(44, 40, 40);
   }
   
   #other {
