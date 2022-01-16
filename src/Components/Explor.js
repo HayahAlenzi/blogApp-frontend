@@ -7,6 +7,8 @@ import "./Explor.css";
 export default function Activities() {
   const [publicData, setPublicData] = useState([]);
   const [userLikes, setUserLikes] = useState([]);
+  const [searchArr, setSearchArr] = useState([]);
+
   
   const token = useSelector((state) => state.tokenX.token);
 
@@ -36,8 +38,16 @@ export default function Activities() {
 
   return (
     <div id="container">
+
+
+  
+<div className="div-search" style={{width:"100%"  ,marginTop:"50px" ,marginLeft:"40%"}}>
+  <input onChange={(e) => {}}className="input-search" type="text"placeholder="SEARCH"/>
+  <button onClick={() => {}} className="button-search" > SEARCH</button>
+
+  </div>
       {publicData.map((elem, index) => {
-        // console.log(elem);
+        console.log(elem);
         // console.log(userLikes);
         return (
           <PostofExplor elem={elem} index={index} userLikes={userLikes} />

@@ -15,7 +15,7 @@ export default function PostofExplor({elem,index,userLikes}) {
 
 
 
-useEffect(() => {
+ useEffect(() => {
   if(userLikes){
     for (let i = 0; i < userLikes.length; i++) {
         if(elem._id==userLikes[i]._id){
@@ -26,7 +26,7 @@ useEffect(() => {
   }
     
 
-}, [userLikes])
+ }, [userLikes])
   
 
   const goToProfile = (id) => {
@@ -35,7 +35,7 @@ useEffect(() => {
 
   const goToPost = (id) => {
     history.push(`/p/${id}`);
-};
+ };
 
 
   const addLike = async (id) => {
@@ -84,7 +84,7 @@ useEffect(() => {
                 <img src={elem.img} alt="img" />
               </div>
               <div className="card__body">
-                <span className="tag tag-blue">type of blog</span>
+                <span className="tag tag-blue">{elem.type}type</span>
                 <h3>{elem.title}</h3>
                 <div className='pDiv'>
                 <p>{elem.des.substr(0,100)}.......</p>
@@ -122,18 +122,20 @@ useEffect(() => {
                     alt="user__image"
                     className="user__image"
                   />
-                </div>
 
-                <div className="user__info">
-
-                  <h4 style={{cursor: "pointer"}}
+                    <h4 style={{cursor: "pointer"}}
                     onClick={() => {
                       goToProfile(elem.userId._id);
                     }}
                   >
                     {elem.userId.name}
                   </h4>
-                  <small>data{elem.date.substr(0, 10)}</small>
+                </div>
+
+                <div className="user__info">
+
+                
+                  <small>{elem.date.substr(0, 10)}</small>
                   <h3 onClick={() => {
                       goToPost(elem._id);
                     }}><GrNext/></h3>

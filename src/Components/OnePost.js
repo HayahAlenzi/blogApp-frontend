@@ -51,16 +51,17 @@ console.log(userName);
     return (
         <div>
             <div class="container text-center">
-            <h1>{objPost.title}</h1>
  
 </div>
 
 
 <div class="shell">
+  
   <div class="containerxx">
     {/* <div class="row"> */}
       <div class="col-md-3">
         <div class="wsk-cp-product">
+
           <div class="wsk-cp-img">
             <img src={objPost.img} alt="img" class="immg" />
           </div>
@@ -90,10 +91,12 @@ console.log(userName);
 
            <div class="wsk-cp-text">
             <div class="category">
-              <span>Tayp of blog</span>
+              <span>{objPost.type}</span>
+              
             </div>
             <div class="title-product">
-              <h2><b>{objPost.title}</b></h2>
+              
+              <h2 style={{margin:"50px"}}><b>{objPost.title}</b></h2>
             </div>
             <div class="description-prod">
               <p><b>{objPost.des}</b></p>

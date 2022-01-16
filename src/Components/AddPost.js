@@ -8,6 +8,7 @@ export default function AddPost() {
   const [inputTitel, setInputTitel] = useState("");
   const [inputDes, setInputDes] = useState("");
   const [inputImg, setInputImg] = useState("");
+  const [inputType, setInputType] = useState("")
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
 
@@ -24,9 +25,10 @@ export default function AddPost() {
     setInputDes(e.target.value);
   };
 
-//   const imgVal = (e) => {
-//     setInputImg(e.target.value);
-//   };
+  const typeVal = (e) => {
+    setInputType(e.target.value);
+  };
+  console.log(inputType);
   const sendData = async () => {
     const res = await axios.post(
       "http://localhost:5000/dataPosts",
@@ -34,6 +36,7 @@ export default function AddPost() {
         title: inputTitel,
         des: inputDes,
         img: inputImg,
+        type:inputType
       },
       {
         headers: { authorization: `Bearer ${token}` },
@@ -64,7 +67,7 @@ export default function AddPost() {
             <input className="inputFiled" onChange={(e)=>{desVal(e)}} placeholder='Write a caption...' type="text" />
             <input className="inputFiled" type="file" onChange={changeVal} />
 
-            <select > Movie blogs
+            <select onChange={(e)=>{typeVal(e)}} >
     <option value="Food blogs">Food blogs</option>
     <option value="News blogs">News blogs</option>
     <option value="Travel blogs">Travel blogs</option>

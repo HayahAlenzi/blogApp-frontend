@@ -26,23 +26,27 @@ const logOut=()=>{
 
     return (
 <div className='navbar-container'>
+
+<div>logo</div>
+
 <ul className="navbar-list">
+
 
            {/* <NavLink to="/BasicOfChat">BasicOfChat</NavLink> */}
             {/* <li className="navbar-item" style={{color:"#7C9473"}}><img style={{height:"50px",weight:"50px"}} src=""/></li> */}
-            <NavLink to="/Explor" className="navbar-link"> <li className="navbar-item">Explor </li></NavLink>
+            <NavLink to="/Explor" className="navbar-link"> <li className="navbar-item"><FaSearch/> </li></NavLink>
             {token? ( <NavLink  to="/AddPost" className="navbar-link" >  <li className="navbar-item"><IoIosAddCircle/></li></NavLink>): ("")}
 
 
-            <NavLink to="/Search" className="navbar-link"> <li className="navbar-item"><FaSearch/> Search</li></NavLink>
+            {/* <NavLink to="/Search" className="navbar-link"> <li className="navbar-item"> Search</li></NavLink> */}
 
          
 
-{token? (<NavLink to="/TimeLine" className="navbar-link"><li  className="navbar-item"><ImHome/>Time Line</li></NavLink>):
+{token? (<NavLink to="/TimeLine" className="navbar-link"><li  className="navbar-item"><ImHome/></li></NavLink>):
           ("")}
-{token? (<NavLink to="/myProfile" className="navbar-link"><li  className="navbar-item"><FaUserAlt/>MyProfile</li></NavLink>):
+{token? (<NavLink to="/myProfile" className="navbar-link"><li  className="navbar-item"><FaUserAlt/></li></NavLink>):
           ("")}
-           {token? (<NavLink to="/out" className="navbar-link" onClick={()=>{logOut()}}> <li className="navbar-item"> <IoLogOut/>Log Out</li></NavLink>):
+           {token? (<NavLink to="/out" className="navbar-link" onClick={()=>{logOut()}}> <li className="navbar-item"> <IoLogOut/></li></NavLink>):
           (            <Link to="/login" className="navbar-link"><li  className="navbar-item">Log in</li></Link>
           )}
 

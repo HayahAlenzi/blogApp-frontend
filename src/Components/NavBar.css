@@ -20,16 +20,19 @@ body{
     position: fixed;
     top: 0;
     width: 100%;
+    display: flex;
+  justify-content:space-around;
+
 }
 
 .navbar-list {
   display: flex;
   /* text-decoration: none; */
   list-style-type: none;
-  justify-content:center;
+  justify-content:space-between;
   padding: auto;
   /* border: 1px solid black; */
-  margin: 0%;
+  margin-right: 200px;
 
 }
 

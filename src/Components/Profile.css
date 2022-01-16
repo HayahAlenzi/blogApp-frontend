@@ -36,6 +36,7 @@
 
 .rabrDiv {
     display: grid;
+    grid-template-columns: 1fr 1fr ;
     /* flex-wrap: wrap; */
     /* justify-content: center;
     max-width: 1200px;
@@ -52,18 +53,23 @@
   .card {
     display: flex;
     flex-direction: column;
-    /* width: 85%; */
-    width: clamp(20rem,calc(20rem + 2vw), 22rem);
+    width: 300px;
+    /* width: clamp(20rem,calc(20rem + 2vw), 22rem); */
     overflow: hidden;
     box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
     border-radius: 1em;
     background: #ECE9E6;
-  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
   
   }
   
   .chiledDiv{
-    width: 85%;
+    width: 70%;
+    padding-right: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+
   }
   
   .card__body {
@@ -166,8 +172,8 @@
  
   
   .wrapper {
-    width: 15%;
-    height: 90vh;
+    width: 80%;
+    height: 120vh;
     background: #FDFEFF;
     border-radius: 10px;
     padding: 20px 20px 20px 20px;

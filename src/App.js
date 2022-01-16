@@ -24,7 +24,7 @@ import G from "./Components/g"
 import Profile from "./Components/profile"
 import "./App.css"
 import Chat from './Components/Chat'
-
+// import Home from "./Components/Home"
 
 function App() {
   const token = useSelector((state) => state.tokenX.token)
@@ -40,6 +40,7 @@ function App() {
        <NavBar />
        <div className='divApp'>
        <Switch>
+      {/* <Route exact path="/home"  component={Home}/> */}
       <Route exact path="/Explor"  component={Explor}/>
       <Route exact path="/About" component={About} />
       <Route exact path="/Search" component={Search} />

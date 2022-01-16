@@ -6,8 +6,7 @@ import { FcLike,FcLikePlaceholder } from "react-icons/fc";
 // import BasicOfChat from './BasicOfChat';
 import "./Profile.css"
 import { useHistory } from "react-router-dom";
-
-
+import { GrNext } from "react-icons/gr";
 
 
 export default function Profile() {
@@ -102,6 +101,11 @@ export default function Profile() {
       setToggleLike(!toggleLike)
     }
 
+
+    
+  const goToPost = (id) => {
+    history.push(`/p/${id}`);
+ };
     return (
         <div className='rabrDiv'>
 
@@ -125,6 +129,7 @@ export default function Profile() {
 		<p class="title">Javascript Developer</p>
 		<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
 		{/* <button type="button" >Hire Me</button> */}
+    {/* <VscGithub/> */}
     {toggle?( <button class="btn2" onClick={()=>{unFollow(userProfile[0]&&userProfile[0].userId._id)}}>UnFollow</button>):
         
         (<button class="btn" onClick={()=>{testFollow(userProfile[0]&&userProfile[0].userId._id)}}>Follow</button>)}
@@ -188,6 +193,9 @@ export default function Profile() {
 
                            <h3> {elem.userId.name}</h3> 
                            <small>data{elem.date}</small>
+                           <h3 onClick={() => {
+                      goToPost(elem._id);
+                    }}><GrNext/></h3>
                       </div>
                     </div>
                   </div>
