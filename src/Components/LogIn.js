@@ -83,7 +83,7 @@ export default function LogIn() {
                 </div>
 
                 <div className="inputbox">
-      <input type="button" onClick={()=>{addUser()}} value="log in"/>
+      <input type="button" className='login-btn' onClick={()=>{addUser()}} value="log in"/>
     </div>
                
                

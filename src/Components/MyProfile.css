@@ -1,21 +1,66 @@
 body{
-  background-color: #D3E4CD;
+  /* background-color: #D3E4CD; */
 }
 
 .mainDiv{
-    margin-top: 4%;
-    margin-left:5px;
+  margin-top: 4%;
+  margin-left:5px;
   padding: 10px;
-  height: 90vh;
-  width: 15%;
-  background-color:  #CFDAC8;
-  /* border-radius: 10px; */
-  position: fixed;
+  /* height: 90vh; */
+  width: 20%;
+ 
+  position:fixed;
   top: 0px;
   left: 0px;
-  color: rgb(116, 112, 108)
+  /* color: rgb(116, 112, 108) */
+  /* width: 60%; */
+    height: 120vh;
+    background: #FDFEFF;
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0 8px 40px rgba(#000000, .2);
 }
-.toggleDiv{
 
-  margin-left: 16%;
+.tap-user{
+  margin: auto;
+  color: #05080f;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+
+
+  font-weight: 300;
+  text-align: center;
+  padding-top: .5em;
+  padding-bottom: .7em;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
+
+.toggleDiv{
+  margin-left: 22%;
+  /* position: fixed; */
+
+}
+
+.container-posts-profile{
+  /* border: 1px solid red; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 3%;
+}
+
+.container-posts-profile div{
+  width: 80%;
+  margin-bottom: 3%;
+  align-items: center;
+}
+
+.useimage{   
+   width: 70px;
+  height: 70px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+  border-radius: 100%;}

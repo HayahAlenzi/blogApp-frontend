@@ -81,7 +81,8 @@ console.log(id,name);
         room: room,
         userName:userName ,
         message: currentMessage,
-        recipient:id,
+        recipientId:id,
+        recipientName:name,
         time:
           new Date(Date.now()).getHours() +
           ":" +

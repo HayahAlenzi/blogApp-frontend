@@ -8,7 +8,7 @@ export default function MyFollow({myFollowing}) {
     const [myFollow, setMyFollow] = useState([])
     const token = useSelector((state) => state.tokenX.token)
     const history = useHistory();
-
+console.log(myFollowing,"bnbnbnbnbnb");
 
 // useEffect(async() => {
 //     const res2 =await axios.get("http://localhost:5000/FollowArr",{
@@ -24,7 +24,7 @@ const goToProfile = (id) => {
 
     return (
         <div>
-            MyFollowffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+            MyFollowing
 
             {myFollowing.map((elem, index) => {
         console.log(elem);

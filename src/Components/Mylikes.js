@@ -21,8 +21,7 @@ export default function Likes() {
    
     return (
         <div>
-
-        <div className="container">
+        <div className="container-posts-profile">
    {likes.map((elem, index) => {
      // console.log(elem);
      return (

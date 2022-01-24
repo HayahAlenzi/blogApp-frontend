@@ -14,6 +14,8 @@ export default function Profile() {
     const [userProfile, setUserProfile] = useState([])
     const [toggle, setToggle] = useState(false)
     const [toggleLike, setToggleLike] = useState(false)
+    const [followingArr, setFollowingArr] = useState([])
+    const [followrsArr, setFollowrsArr] = useState([])
     const history = useHistory();
 
 
@@ -31,7 +33,11 @@ export default function Profile() {
          headers: { authorization: `Bearer ${token}` },
 
         })
-        console.log(res2.data.following);
+        // console.log(res2.data.following);
+        console.log(res2.data,"xxxxxxxxxxxxxxx");
+
+        setFollowingArr(res2.data.following)
+        setFollowrsArr(res2.data.followers)
 
 
 
@@ -52,7 +58,7 @@ export default function Profile() {
 
     },[])
 
-    console.log(toggle);
+    console.log(followingArr);
 
     const goToChat = (id,name) => {
       history.push(`/chat/${id}/${name}`);
@@ -139,19 +145,21 @@ export default function Profile() {
 <div class="social-icons">
 		<div class="icon">
 			<a href="/"><i class="fab fa-dribbble"></i></a>
-			<h4>12.8k</h4>
-			<p>Followers</p>
+			<h4 style={{color:"black"}}>{userProfile.length}</h4>
+			<p>Posts</p>
 		</div>
 
 		<div class="icon">
 			<a href="#"><i class="fab fa-behance"></i></a>
-			<h4>12.8k</h4>
-			<p>Followers</p>
+			<h4 style={{color:"black"}}>{followingArr.length}</h4>
+			
+			<p>Following</p>
 		</div>
 		
 		<div class="icon">
 			<a href="#"><i class="fab fa-twitter"></i></a>
-			<h4>12.8k</h4>
+      <h4 style={{color:"black"}}>{followrsArr.length}</h4>
+
 			<p>Followers</p>
 		</div>
 
@@ -174,12 +182,12 @@ export default function Profile() {
                            <img src={elem.img} alt="img" />
                      </div>
                       <div className="card__body">
-                            <span className="tag tag-blue">type of blog</span>
+                            <span className="tag tag-blue">{elem.type}</span>
                             <h3>{elem.title}</h3>
                             <p>{elem.des}</p>
                       </div>
-                      {token?(<div>   {toggleLike?( <h3 onClick={()=>{addLike()}}><FcLike/></h3>):
-       ( <h3 onClick={()=>{disLike()}}><FcLikePlaceholder/></h3>)}</div>):("")}
+                      {/* {token?(<div>   {toggleLike?( <h3 onClick={()=>{addLike()}}><FcLike/></h3>):
+       ( <h3 onClick={()=>{disLike()}}><FcLikePlaceholder/></h3>)}</div>):("")} */}
                       <div className="card__footer">
                         <div className="user">
                           <img

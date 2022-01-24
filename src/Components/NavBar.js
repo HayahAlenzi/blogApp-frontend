@@ -27,7 +27,7 @@ const logOut=()=>{
     return (
 <div className='navbar-container'>
 
-<div>logo</div>
+<div style={{color:"white" ,paddingTop:"15px"}}>Blog App</div>
 
 <ul className="navbar-list">
 

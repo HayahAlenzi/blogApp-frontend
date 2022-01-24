@@ -11,7 +11,10 @@ export default function Home() {
     return (
         
             
-      <div className='appDiv ms-auto'>
+      <div className='home-div'>
+          <h1>
+              WELCOME
+          </h1>
        {/* <NavBar /> */}
        {/* {token?(<MyProfile/>):("")} */}
 

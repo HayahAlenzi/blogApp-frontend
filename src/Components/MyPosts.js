@@ -30,8 +30,8 @@ const [myPost, setMyPost] = useState([])
     
     return (
         <div>
-           MyPostsppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
-           <div className="container">
+           My Posts
+           <div className="container-posts-profile">
       {myPost.map((elem, index) => {
         // console.log(elem);
         return (
@@ -41,7 +41,7 @@ const [myPost, setMyPost] = useState([])
                 <img src={elem.img} alt="img" />
               </div>
               <div className="card__body">
-                <span className="tag tag-blue">type of blog</span>
+                <span className="tag tag-blue">type:{elem.type}</span>
                 <h3>{elem.title}</h3>
                 <p>{elem.des}</p>
               </div>

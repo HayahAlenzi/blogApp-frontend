@@ -99,7 +99,9 @@ console.log(userName);
               <h2 style={{margin:"50px"}}><b>{objPost.title}</b></h2>
             </div>
             <div class="description-prod">
-              <p><b>{objPost.des}</b></p>
+              <ScrollToBottom>
+              <p style={{fontSize:"20px"}}><b>{objPost.des}</b></p>
+              </ScrollToBottom>
             </div>
 <ScrollToBottom>
             <div className='commint'>
@@ -107,7 +109,7 @@ console.log(userName);
             return(
                 <div  key={index}>
 
-       <h2>{elem.userName}:</h2><p>{elem.commet}</p>
+       <h6>{elem.userName}:</h6><h5>{elem.commet}</h5>
 </div>
             )
         })}

@@ -68,7 +68,9 @@ export default function AddPost() {
             <input className="inputFiled" type="file" onChange={changeVal} />
 
             <select onChange={(e)=>{typeVal(e)}} >
+    <option value="Food blogs">Type of Blob?</option>
     <option value="Food blogs">Food blogs</option>
+
     <option value="News blogs">News blogs</option>
     <option value="Travel blogs">Travel blogs</option>
 

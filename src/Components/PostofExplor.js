@@ -84,10 +84,13 @@ export default function PostofExplor({elem,index,userLikes}) {
                 <img src={elem.img} alt="img" />
               </div>
               <div className="card__body">
-                <span className="tag tag-blue">{elem.type}type</span>
+                <span className="tag tag-blue">type:{elem.type}</span>
                 <h3>{elem.title}</h3>
                 <div className='pDiv'>
-                <p>{elem.des.substr(0,100)}.......</p>
+                <p style={{fontSize:"20px"}}>{elem.des.substr(0,100)}.......</p>
+                <h5 onClick={() => {
+                      goToPost(elem._id);
+                    }}><GrNext/></h5>
                 </div>
                 {/* {for(let i=0,i<userLikes)}      */}
                 {token ? (
@@ -117,30 +120,32 @@ export default function PostofExplor({elem,index,userLikes}) {
               </div>
               <div className="card__footer">
                 <div className="user">
+                  
                   <img
                     src="https://cdn.iconscout.com/icon/free/png-256/user-1648810-1401302.png"
                     alt="user__image"
                     className="user__image"
                   />
-
-                    <h4 style={{cursor: "pointer"}}
+ <h4 style={{cursor: "pointer"}}
                     onClick={() => {
                       goToProfile(elem.userId._id);
                     }}
                   >
                     {elem.userId.name}
                   </h4>
+                   
                 </div>
 
                 <div className="user__info">
 
                 
-                  <small>{elem.date.substr(0, 10)}</small>
-                  <h3 onClick={() => {
-                      goToPost(elem._id);
-                    }}><GrNext/></h3>
+                 
+              
                 </div>
+
               </div>
+              <small style={{marginLeft:"200px"}}>{elem.date.substr(0, 10)}</small>
+
             </div>
           </div>
         </div>

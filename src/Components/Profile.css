@@ -65,9 +65,9 @@
   
   .chiledDiv{
     width: 70%;
-    padding-right: 40px;
+    margin-left: 42%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns:  1fr 1fr;
     gap: 2rem;
 
   }
@@ -172,8 +172,10 @@
  
   
   .wrapper {
-    width: 80%;
+    width: 20%;
     height: 120vh;
+    position: fixed;
+
     background: #FDFEFF;
     border-radius: 10px;
     padding: 20px 20px 20px 20px;
@@ -187,7 +189,6 @@
        
     .profile {
       margin-top: 2.2em;
-      position: relative;
       
     }
       .check {

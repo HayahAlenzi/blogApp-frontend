@@ -16,6 +16,7 @@ import NotFoundPage from './NotFoundPage'
 import { useSelector } from 'react-redux'
 import MyPosts from "./Components/MyPosts"
 import MyFollow from "./Components/MyFollow"
+import MyFollowers from './Components/MyFollowers'
 import Mylikes from "./Components/Mylikes"
 import MyMessage from "./Components/MyMessage"
 import G from "./Components/g"
@@ -24,6 +25,8 @@ import G from "./Components/g"
 import Profile from "./Components/profile"
 import "./App.css"
 import Chat from './Components/Chat'
+import Home from './Components/Home'
+// import MyFollowers from './Components/MyFollowers'
 // import Home from "./Components/Home"
 
 function App() {
@@ -40,7 +43,7 @@ function App() {
        <NavBar />
        <div className='divApp'>
        <Switch>
-      {/* <Route exact path="/home"  component={Home}/> */}
+      <Route exact path="/"  component={Home}/>
       <Route exact path="/Explor"  component={Explor}/>
       <Route exact path="/About" component={About} />
       <Route exact path="/Search" component={Search} />
@@ -55,6 +58,8 @@ function App() {
       <Route exact path="/myProfile" component={MyProfile}/>
       <Route exact path="/MyPosts" component={MyPosts}/>
       <Route exact path="/MyFollow" component={MyFollow}/>
+      <Route exact path="/MyFollowers" component={MyFollowers}/>
+
       <Route exact path="/Mylikes" component={Mylikes}/>
       <Route exact path="/MyMessage" component={MyMessage}/>
       <Route exact path="/g" component={G}/>
